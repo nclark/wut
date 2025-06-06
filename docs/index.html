@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WUT - Wu-Tang Ultimate Timer | Professional Time Management Documentation</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🐉</text></svg>">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <span class="logo">🐉</span>
+                <span class="brand-text">WUT</span>
+                <span class="version">v2.0.1</span>
+            </div>
+            <div class="nav-links">
+                <a href="#overview" class="nav-link">Overview</a>
+                <a href="#philosophy" class="nav-link">Philosophy</a>
+                <a href="#api" class="nav-link">API Reference</a>
+                <a href="#examples" class="nav-link">Examples</a>
+                <a href="https://github.com/nclark/wut" class="nav-link external">GitHub</a>
+            </div>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title">
+                    Wu-Tang Ultimate Timer
+                    <span class="subtitle">Professional Time Management Through Ancient Wisdom</span>
+                </h1>
+                <p class="hero-description">
+                    A production-grade Go application implementing the Wu-Tang Clan's time management methodologies. 
+                    Combining the 36 Chambers philosophy with modern productivity frameworks to achieve supreme focus states.
+                </p>
+                <div class="hero-actions">
+                    <a href="#installation" class="btn btn-primary">Get Started</a>
+                    <a href="#api" class="btn btn-secondary">API Docs</a>
+                </div>
+                <div class="hero-demo">
+                    <img src="https://raw.githubusercontent.com/nclark/wut/refs/heads/master/demo.gif" alt="WUT Demo" class="demo-gif">
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section id="overview" class="section">
+            <div class="container">
+                <h2 class="section-title">System Overview</h2>
+                <div class="overview-grid">
+                    <div class="feature-card">
+                        <h3>🏗️ Modular Architecture</h3>
+                        <p>Clean separation of concerns across internal packages following Go best practices. The codebase demonstrates enterprise-level software design principles while maintaining the spiritual essence of Wu-Tang philosophy.</p>
+                    </div>
+                    <div class="feature-card">
+                        <h3>⚡ High-Performance Rendering</h3>
+                        <p>Optimized particle systems and visual effects engine built on Bubble Tea framework. Delivers 60fps rainbow-colored quote animations while maintaining terminal compatibility across all platforms.</p>
+                    </div>
+                    <div class="feature-card">
+                        <h3>🎯 Precision Time Management</h3>
+                        <p>Implements the Wu-Tang temporal methodology with microsecond accuracy. From 15-second "Protect Ya Neck" sprints to extended 15-minute "36 Chambers" deep work sessions.</p>
+                    </div>
+                    <div class="feature-card">
+                        <h3>🐉 Cross-Platform Deployment</h3>
+                        <p>Containerized with Docker, multi-platform binaries, and automated CI/CD pipeline. Ready for production deployment in any environment where supreme productivity is required.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="philosophy" class="section bg-secondary">
+            <div class="container">
+                <h2 class="section-title">The Wu-Tang Time Management Philosophy</h2>
+                <div class="philosophy-content">
+                    <div class="philosophy-text">
+                        <h3>Mathematical Principles of Divine Focus</h3>
+                        <p>The Wu-Tang Clan's approach to time management is rooted in the understanding that <strong>each individual is God</strong> - a divine entity capable of infinite productivity when properly aligned with universal principles.</p>
+                        
+                        <blockquote class="wisdom-quote">
+                            "Time is the most valuable thing we have, God. Once you understand that you are the creator of your own reality, you can bend time to your will through focused intention and supreme mathematics."
+                            <cite>- The RZA, on temporal mastery</cite>
+                        </blockquote>
+                        
+                        <h4>The 36 Chambers Methodology</h4>
+                        <p>Our implementation follows the traditional 36 Chambers approach to productivity:</p>
+                        <ul class="philosophy-list">
+                            <li><strong>Chamber 1-9:</strong> Foundation building (15-second to 1-minute sessions)</li>
+                            <li><strong>Chamber 10-18:</strong> Skill development (5-minute focused work blocks)</li>
+                            <li><strong>Chamber 19-27:</strong> Mastery cultivation (15-minute deep work sessions)</li>
+                            <li><strong>Chamber 28-36:</strong> Transcendence (custom duration for divine work)</li>
+                        </ul>
+                        
+                        <h4>Divine Mathematics in Code</h4>
+                        <p>Each Gods and Earths understands that mathematics is the foundation of all existence. Our timer implements this through:</p>
+                        <ul class="philosophy-list">
+                            <li><strong>Knowledge (1):</strong> Awareness of time remaining</li>
+                            <li><strong>Wisdom (2):</strong> Understanding when to focus vs when to rest</li>
+                            <li><strong>Understanding (3):</strong> Clarity of purpose during each session</li>
+                            <li><strong>Culture/Freedom (4):</strong> Liberation from distraction through visual chaos</li>
+                            <li><strong>Power/Refinement (5):</strong> Mastery through consistent practice</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="installation" class="section">
+            <div class="container">
+                <h2 class="section-title">Installation & Quick Start</h2>
+                <div class="install-grid">
+                    <div class="install-method">
+                        <h3>Docker (Recommended for Gods)</h3>
+                        <div class="code-block">
+                            <code>docker run --rm -it ghcr.io/nclark/wut</code>
+                        </div>
+                        <p>Zero-configuration deployment for immediate Wu-Tang enlightenment.</p>
+                    </div>
+                    <div class="install-method">
+                        <h3>Go Module Installation</h3>
+                        <div class="code-block">
+                            <code>go install github.com/nclark/wut@latest</code>
+                        </div>
+                        <p>For developers who understand the supreme mathematics of Go.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="api" class="section bg-secondary">
+            <div class="container">
+                <h2 class="section-title">API Reference</h2>
+                <p class="api-intro">Professional documentation for the WUT time management system. Each package represents a chamber of functionality that Gods can utilize to build their own productivity applications.</p>
+                
+                <div class="package-grid">
+                    <div class="package-card">
+                        <h3 class="package-name">package app</h3>
+                        <p class="package-path">github.com/nclark/wut/internal/app</p>
+                        <p class="package-desc">Core application state management and Bubble Tea integration. The foundation chamber where all divine time management begins.</p>
+                        <a href="app.html" class="package-link">View Documentation →</a>
+                    </div>
+                    
+                    <div class="package-card">
+                        <h3 class="package-name">package effects</h3>
+                        <p class="package-path">github.com/nclark/wut/internal/effects</p>
+                        <p class="package-desc">High-performance visual effects system. Implements the chaos theory necessary for breaking through mental barriers and achieving flow states.</p>
+                        <a href="effects.html" class="package-link">View Documentation →</a>
+                    </div>
+                    
+                    <div class="package-card">
+                        <h3 class="package-name">package wutang</h3>
+                        <p class="package-path">github.com/nclark/wut/internal/wutang</p>
+                        <p class="package-desc">Sacred data repository containing 70+ authenticated Wu-Tang wisdom quotes, member information, and cultural artifacts for spiritual programming.</p>
+                        <a href="wutang.html" class="package-link">View Documentation →</a>
+                    </div>
+                    
+                    <div class="package-card">
+                        <h3 class="package-name">package ui</h3>
+                        <p class="package-path">github.com/nclark/wut/internal/ui</p>
+                        <p class="package-desc">Professional styling system built on Lipgloss. Provides the visual foundation for manifesting Wu-Tang energy in terminal environments.</p>
+                        <a href="ui.html" class="package-link">View Documentation →</a>
+                    </div>
+                </div>
+
+                <div class="api-highlight">
+                    <h3>Example: Creating a Divine Timer Session</h3>
+                    <div class="code-example">
+                        <pre><code class="go">// Initialize a Wu-Tang timer session for the God
+model := app.InitialModel()
+
+// Configure for supreme focus (15-minute chamber)
+model.TotalTime = 900  // 15 minutes in seconds
+model.TimeRemaining = 900
+
+// Enable maximum visual chaos for breakthrough states
+model.FireworksMode = true
+model.EmojiRain = true
+model.AutoWuLogos = true
+
+// Begin the divine countdown
+cmd := model.spawnInitialEffects()
+</code></pre>
+                    </div>
+                    <p class="code-explanation">This example demonstrates the proper initialization sequence for a Wu-Tang productivity session. The visual chaos serves to overwhelm the analytical mind, allowing the divine consciousness to focus purely on the task at hand.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="examples" class="section">
+            <div class="container">
+                <h2 class="section-title">Implementation Examples</h2>
+                <div class="examples-grid">
+                    <div class="example-card">
+                        <h3>Micro-Productivity Sessions</h3>
+                        <div class="code-block">
+                            <code>// 15-second "Protect Ya Neck" sprint
+wut --duration=15s --mode=protect</code>
+                        </div>
+                        <p>Perfect for quick decision-making or breaking through mental blocks. The short duration forces immediate action while the visual assault prevents overthinking.</p>
+                    </div>
+                    
+                    <div class="example-card">
+                        <h3>Deep Work Chambers</h3>
+                        <div class="code-block">
+                            <code>// 15-minute focused work session
+wut --duration=15m --member=rza --effects=all</code>
+                        </div>
+                        <p>Extended focus periods blessed by the Abbott himself. Full visual chaos mode helps achieve flow states through sensory overload.</p>
+                    </div>
+                    
+                    <div class="example-card">
+                        <h3>Custom Divine Sessions</h3>
+                        <div class="code-block">
+                            <code>// 36-minute meditation (sacred number)
+wut --duration=36m --quotes=philosophical</code>
+                        </div>
+                        <p>For Gods who need extended periods of divine contemplation. The 36-minute duration honors the traditional chamber count.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Documentation</h4>
+                    <ul>
+                        <li><a href="#api">API Reference</a></li>
+                        <li><a href="#examples">Examples</a></li>
+                        <li><a href="https://github.com/nclark/wut">Source Code</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Community</h4>
+                    <ul>
+                        <li><a href="https://github.com/nclark/wut/issues">Issues</a></li>
+                        <li><a href="https://github.com/nclark/wut/releases">Releases</a></li>
+                        <li><a href="https://github.com/nclark/wut/discussions">Discussions</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Philosophy</h4>
+                    <ul>
+                        <li><a href="#philosophy">Wu-Tang Time Management</a></li>
+                        <li><a href="#philosophy">Supreme Mathematics</a></li>
+                        <li><a href="#philosophy">Divine Productivity</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 WUT - Wu-Tang Ultimate Timer. Licensed under WTFPL.</p>
+                <p><em>"Wu-Tang is for the children, and time management is for the Gods."</em></p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

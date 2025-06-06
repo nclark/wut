@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>package app - WUT Documentation</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🐉</text></svg>">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <span class="logo">🐉</span>
+                <a href="index.html" class="brand-text">WUT</a>
+                <span class="version">v2.0.1</span>
+            </div>
+            <div class="nav-links">
+                <a href="index.html" class="nav-link">← Back to Docs</a>
+                <a href="https://github.com/nclark/wut" class="nav-link external">GitHub</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container" style="padding-top: 40px; padding-bottom: 80px;">
+        <div class="package-header">
+            <h1 class="package-title">package app</h1>
+            <p class="package-import">import "github.com/nclark/wut/internal/app"</p>
+            <p class="package-overview">
+                Package app provides the core application state management and Bubble Tea integration for the Wu-Tang Ultimate Timer. 
+                This foundation chamber contains the divine logic where all time management enlightenment begins, implementing the sacred 
+                Model-View-Update pattern that allows Gods to achieve supreme productivity states.
+            </p>
+        </div>
+
+        <section class="api-section">
+            <h2>Types</h2>
+            
+            <div class="type-definition">
+                <h3 class="type-name">type Model</h3>
+                <div class="code-block">
+                    <pre><code>type Model struct {
+    State             State
+    Width             int
+    Height            int
+    TimeRemaining     int
+    TotalTime         int
+    Progress          progress.Model
+    Particles         []effects.Particle
+    Quotes            []effects.FloatingQuote
+    MatrixRains       []effects.MatrixRain
+    Explosions        []effects.Explosion
+    Frame             int
+    MenuSelection     int
+    GlitchEffect      bool
+    FireworksMode     bool
+    MenuItems         []string
+    ScreenShake       int
+    ScreenShakeX      int
+    ScreenShakeY      int
+    BeatPulse         float64
+    CurrentMember     string
+    MemberMode        bool
+    SpinningText      bool
+    StrobeEffect      bool
+    WuTangLogos       []effects.FloatingQuote
+    FlameAnimations   []effects.Particle
+    EmojiRain         bool
+    CustomTimeInput   string
+    InputMode         bool
+    AutoWuLogos       bool
+}</code></pre>
+                </div>
+                <p class="type-description">
+                    Model represents the complete divine state of a Wu-Tang productivity session. Each field contains sacred knowledge 
+                    necessary for manifesting supreme focus. The model follows the principle that "each God controls their own universe" - 
+                    this struct is that universe, containing all temporal and visual reality within the timer application.
+                </p>
+                
+                <h4>Field Documentation</h4>
+                <ul class="field-list">
+                    <li><strong>State:</strong> Current chamber of operation (Menu, Countdown, or Finished)</li>
+                    <li><strong>TimeRemaining:</strong> Sacred seconds left in the divine countdown</li>
+                    <li><strong>FireworksMode:</strong> Enables continuous particle explosions for breakthrough states</li>
+                    <li><strong>EmojiRain:</strong> Activates falling emoji chaos to overwhelm analytical mind</li>
+                    <li><strong>CurrentMember:</strong> Which Wu-Tang member is blessing this session</li>
+                    <li><strong>BeatPulse:</strong> Implements the invisible beat that drives all visual effects</li>
+                </ul>
+            </div>
+
+            <div class="type-definition">
+                <h3 class="type-name">type State</h3>
+                <div class="code-block">
+                    <pre><code>type State int
+
+const (
+    MenuState State = iota
+    CountdownState
+    FinishedState
+)</code></pre>
+                </div>
+                <p class="type-description">
+                    State represents the three fundamental chambers of Wu-Tang time management. Each state corresponds to a different 
+                    level of consciousness: preparation (Menu), focused action (Countdown), and integration (Finished).
+                </p>
+            </div>
+        </section>
+
+        <section class="api-section">
+            <h2>Functions</h2>
+
+            <div class="func-definition">
+                <h3 class="func-signature">func InitialModel() Model</h3>
+                <div class="code-block">
+                    <pre><code>func InitialModel() Model</code></pre>
+                </div>
+                <p class="func-description">
+                    InitialModel creates a new Wu-Tang timer session in its divine default state. This function embodies the principle 
+                    of "Knowledge" (the first degree) by establishing the foundation for all subsequent productivity work. The returned 
+                    model begins with maximum visual chaos enabled, as overwhelming the senses leads to deeper focus states.
+                </p>
+                <div class="example-usage">
+                    <h4>Example Usage</h4>
+                    <div class="code-block">
+                        <pre><code>// Initialize a new session for the God
+model := app.InitialModel()
+
+// The model starts with optimal chaos settings:
+// - FireworksMode: true (continuous particle explosions)
+// - EmojiRain: true (40+ falling emojis)
+// - AutoWuLogos: true (automatic Wu-Tang logo spawning)
+// - Rainbow colors active on all visual elements</code></pre>
+                    </div>
+                </div>
+            </div>
+
+            <div class="func-definition">
+                <h3 class="func-signature">func TickCmd() tea.Cmd</h3>
+                <div class="code-block">
+                    <pre><code>func TickCmd() tea.Cmd</code></pre>
+                </div>
+                <p class="func-description">
+                    TickCmd generates the divine heartbeat of the Wu-Tang timer. Operating at 100ms intervals, this function creates 
+                    the temporal rhythm that drives all visual effects, countdown logic, and philosophical animations. The tick rate 
+                    was mathematically determined to provide optimal visual chaos without overwhelming mortal hardware.
+                </p>
+            </div>
+        </section>
+
+        <section class="api-section">
+            <h2>Methods</h2>
+
+            <div class="method-definition">
+                <h3 class="method-signature">func (m Model) Init() tea.Cmd</h3>
+                <div class="code-block">
+                    <pre><code>func (m Model) Init() tea.Cmd</code></pre>
+                </div>
+                <p class="method-description">
+                    Init implements the Bubble Tea Program interface, establishing the initial divine commands for the application. 
+                    This method enters the alternate screen reality where Wu-Tang time management operates, separate from the mundane 
+                    terminal environment.
+                </p>
+            </div>
+
+            <div class="method-definition">
+                <h3 class="method-signature">func (m Model) Update(msg tea.Msg) (tea.Model, tea.Cmd)</h3>
+                <div class="code-block">
+                    <pre><code>func (m Model) Update(msg tea.Msg) (tea.Model, tea.Cmd)</code></pre>
+                </div>
+                <p class="method-description">
+                    Update handles all divine messages and state transitions within the Wu-Tang productivity system. This method 
+                    processes keyboard input, timer ticks, and window resize events according to the sacred principles of the 
+                    36 Chambers. Each message type corresponds to a different aspect of Wu-Tang philosophy:
+                </p>
+                <ul class="method-features">
+                    <li><strong>KeyMsg:</strong> Direct divine intervention (user input)</li>
+                    <li><strong>TickMsg:</strong> The passage of sacred time</li>
+                    <li><strong>WindowSizeMsg:</strong> Adaptation to the God's environment</li>
+                </ul>
+            </div>
+
+            <div class="method-definition">
+                <h3 class="method-signature">func (m Model) View() string</h3>
+                <div class="code-block">
+                    <pre><code>func (m Model) View() string</code></pre>
+                </div>
+                <p class="method-description">
+                    View renders the current divine state into terminal-compatible visual representation. This method manifests 
+                    the Wu-Tang philosophy into visible form, creating the rainbow chaos, floating quotes, and particle explosions 
+                    that facilitate breakthrough productivity states.
+                </p>
+            </div>
+
+            <div class="method-definition">
+                <h3 class="method-signature">func (m *Model) TriggerScreenShake(intensity int)</h3>
+                <div class="code-block">
+                    <pre><code>func (m *Model) TriggerScreenShake(intensity int)</code></pre>
+                </div>
+                <p class="method-description">
+                    TriggerScreenShake implements the Wu-Tang principle of "breaking mental patterns through sensory disruption." 
+                    The screen shake effect jolts the user's consciousness, preventing them from falling into unproductive mental 
+                    loops. Intensity levels correspond to different degrees of divine intervention:
+                </p>
+                <ul class="method-features">
+                    <li><strong>5-10:</strong> Gentle wisdom nudges</li>
+                    <li><strong>15-25:</strong> Focus redirections</li>
+                    <li><strong>50+:</strong> Complete consciousness reset (final explosion)</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="api-section">
+            <h2>Timer Configurations</h2>
+            <p class="section-intro">
+                The Wu-Tang timer supports multiple divine session lengths, each corresponding to different chambers of productivity:
+            </p>
+
+            <div class="config-grid">
+                <div class="config-card">
+                    <h4>🔥 15-Minute Wu-Tang Countdown</h4>
+                    <p>The traditional deep work session. Corresponds to entering the first 15 chambers of Wu-Tang philosophy. 
+                    Ideal for Gods who need extended focus periods for complex divine work.</p>
+                    <div class="code-block small">
+                        <code>model.TotalTime = 900  // 15 minutes</code>
+                    </div>
+                </div>
+
+                <div class="config-card">
+                    <h4>⚡ 5-Minute Shaolin Special</h4>
+                    <p>Quick burst sessions for rapid divine inspiration. Based on the Shaolin training principle of 
+                    intense, focused practice periods.</p>
+                    <div class="code-block small">
+                        <code>model.TotalTime = 300  // 5 minutes</code>
+                    </div>
+                </div>
+
+                <div class="config-card">
+                    <h4>🛡️ 30-Second For The Children</h4>
+                    <p>Micro-productivity sessions honoring Wu-Tang's commitment to the next generation. Perfect for quick 
+                    decisions or breaking through minor mental blocks.</p>
+                    <div class="code-block small">
+                        <code>model.TotalTime = 30   // 30 seconds</code>
+                    </div>
+                </div>
+
+                <div class="config-card">
+                    <h4>⚔️ 15-Second Protect Ya Neck</h4>
+                    <p>Ultra-rapid divine interventions. Forces immediate action through time pressure, preventing 
+                    overthinking and analysis paralysis.</p>
+                    <div class="code-block small">
+                        <code>model.TotalTime = 15   // 15 seconds</code>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="api-section">
+            <h2>Divine Mathematics Integration</h2>
+            <p class="section-intro">
+                The app package implements Wu-Tang's Supreme Mathematics principles throughout its operation:
+            </p>
+
+            <div class="mathematics-grid">
+                <div class="math-principle">
+                    <h4>1 - Knowledge</h4>
+                    <p>The foundation. Users gain knowledge of time remaining through the countdown display.</p>
+                </div>
+                <div class="math-principle">
+                    <h4>2 - Wisdom</h4>
+                    <p>Understanding when to focus vs when to rest. The timer guides optimal work/break cycles.</p>
+                </div>
+                <div class="math-principle">
+                    <h4>3 - Understanding</h4>
+                    <p>Clarity of purpose. Visual chaos breaks mental loops, allowing pure focus on the task.</p>
+                </div>
+                <div class="math-principle">
+                    <h4>4 - Culture/Freedom</h4>
+                    <p>Liberation from distraction through controlled sensory overload and Wu-Tang wisdom quotes.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Package Documentation</h4>
+                    <ul>
+                        <li><a href="app.html">package app</a></li>
+                        <li><a href="effects.html">package effects</a></li>
+                        <li><a href="wutang.html">package wutang</a></li>
+                        <li><a href="ui.html">package ui</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Wu-Tang Wisdom</h4>
+                    <ul>
+                        <li><a href="index.html#philosophy">Divine Time Management</a></li>
+                        <li><a href="index.html#philosophy">Supreme Mathematics</a></li>
+                        <li><a href="index.html#philosophy">36 Chambers Methodology</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 WUT Documentation. Wu-Tang is for the children, and documentation is for the Gods.</p>
+            </div>
+        </div>
+    </footer>
+
+    <style>
+        .package-header {
+            margin-bottom: 60px;
+            padding-bottom: 40px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .package-title {
+            font-family: var(--font-mono);
+            font-size: 2.5rem;
+            font-weight: 600;
+            color: var(--primary-color);
+            margin-bottom: 16px;
+        }
+
+        .package-import {
+            font-family: var(--font-mono);
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            margin-bottom: 24px;
+        }
+
+        .package-overview {
+            font-size: 1.2rem;
+            line-height: 1.7;
+            color: var(--text-secondary);
+        }
+
+        .api-section {
+            margin-bottom: 80px;
+        }
+
+        .api-section h2 {
+            font-size: 2rem;
+            font-weight: 600;
+            margin-bottom: 40px;
+            color: var(--text-primary);
+            border-bottom: 2px solid var(--primary-color);
+            padding-bottom: 12px;
+        }
+
+        .section-intro {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            margin-bottom: 32px;
+            line-height: 1.7;
+        }
+
+        .type-definition, .func-definition, .method-definition {
+            background: var(--bg-secondary);
+            border-radius: 12px;
+            padding: 32px;
+            margin-bottom: 32px;
+        }
+
+        .type-name, .func-signature, .method-signature {
+            font-family: var(--font-mono);
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: var(--primary-color);
+            margin-bottom: 16px;
+        }
+
+        .type-description, .func-description, .method-description {
+            color: var(--text-secondary);
+            line-height: 1.7;
+            margin: 24px 0;
+        }
+
+        .field-list, .method-features {
+            margin: 24px 0;
+            padding-left: 20px;
+        }
+
+        .field-list li, .method-features li {
+            margin-bottom: 8px;
+            color: var(--text-secondary);
+        }
+
+        .example-usage {
+            margin-top: 32px;
+        }
+
+        .example-usage h4 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 16px;
+            color: var(--text-primary);
+        }
+
+        .config-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 24px;
+            margin-top: 32px;
+        }
+
+        .config-card {
+            background: var(--bg-primary);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 24px;
+        }
+
+        .config-card h4 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 12px;
+            color: var(--text-primary);
+        }
+
+        .config-card p {
+            color: var(--text-secondary);
+            line-height: 1.6;
+            margin-bottom: 16px;
+        }
+
+        .code-block.small {
+            font-size: 12px;
+            padding: 12px;
+        }
+
+        .mathematics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 24px;
+            margin-top: 32px;
+        }
+
+        .math-principle {
+            background: var(--bg-primary);
+            border-left: 4px solid var(--primary-color);
+            padding: 20px;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .math-principle h4 {
+            color: var(--primary-color);
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+
+        .math-principle p {
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+    </style>
+</body>
+</html>
