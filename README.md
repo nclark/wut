@@ -1,3 +1,5 @@
+*note: i did not write any of this*
+
 # 🐉 WUT - Wu-Tang Ultimate Timer 🐉
 
 <div align="center">
