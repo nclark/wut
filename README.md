@@ -8,6 +8,10 @@
 
 *Enter the 36 Chambers of Time Management*
 
+```
+docker run --rm -it ghcr.io/nclark/wut
+```
+
 ## 🔥 Features 🔥
 
 ### Wu-Tang Everything
@@ -16,7 +20,7 @@
 - **ASCII Wu-Tang Logo**: Bouncing around like the DVD screensaver
 - **Member-Specific Countdown**: Shows which member is blessing your timer
 
-### Visual Chaos 
+### Visual Chaos
 - **Rainbow Mode**: Everything cycles through rainbow colors
 - **Emoji Rain**: 40+ different emojis falling from the sky
 - **Screen Shake**: Automatic shakes on explosions and member switches
@@ -90,7 +94,7 @@ wut
 ### Member Modes
 Each Wu-Tang member brings their own vibe:
 - **RZA**: Gold theme - The Abbott blessing your time
-- **GZA**: Cyan theme - Liquid swords of productivity  
+- **GZA**: Cyan theme - Liquid swords of productivity
 - **Method Man**: Red theme - Bring da ruckus to deadlines
 - **Raekwon**: Purple theme - Only built 4 productive linx
 - **Ghostface Killah**: Orange theme - Supreme time management
@@ -130,7 +134,7 @@ make release
 ## ⚠️ Warnings
 
 - May cause uncontrollable head nodding
-- Screen shake may induce Wu-Tang Forever syndrome  
+- Screen shake may induce Wu-Tang Forever syndrome
 - Strobe effect not recommended for extended use
 - Your productivity might become TOO supreme
 
@@ -150,7 +154,7 @@ This timer is for the children. Use freely.
 
 ---
 
-*"I bomb atomically, Socrates' philosophies and hypotheses  
+*"I bomb atomically, Socrates' philosophies and hypotheses
 Can't define how I be droppin' these mockeries"*
 
 SUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUU! 🐝
