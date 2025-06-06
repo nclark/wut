@@ -8,7 +8,7 @@
 
 *Enter the 36 Chambers of Time Management*
 
-## 🔥 Features That Make It LIT 🔥
+## 🔥 Features 🔥
 
 ### Wu-Tang Everything
 - **9 Member Modes**: Each Wu-Tang member has their own color theme
