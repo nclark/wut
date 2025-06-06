@@ -54,28 +54,28 @@ The most lit, most Wu-Tang, most visually ridiculous countdown timer ever create
 
 ## 🚀 Installation
 
+### **Easy Install (Recommended):**
 ```bash
-# Clone the repo
+# Install directly from GitHub
+go install github.com/nclark/wut@latest
+```
+
+### **Manual Build:**
+```bash
+# Clone and build yourself
 git clone https://github.com/nclark/wut.git
 cd wut
-
-# Build with make
 make build
-
-# Or run directly
-make run
-
-# Install to system (copies to /usr/local/bin)
 make install
 ```
+
+### **Download Binary:**
+Go to [Releases](https://github.com/nclark/wut/releases) and download the binary for your platform.
 
 ## 🎯 Quick Start
 
 ```bash
-# Run directly with Go
-go run main.go
-
-# Or if installed
+# Just run it!
 wut
 ```
 

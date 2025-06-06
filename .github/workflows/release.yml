@@ -53,13 +53,13 @@ jobs:
           
           ### Installation
           
-          **macOS (Homebrew - coming soon!):**
+          **Easy Install (Go users):**
           ```bash
-          brew install nclark/tap/wut
+          go install github.com/nclark/wut@${{ steps.get_version.outputs.VERSION }}
           ```
           
           **Manual Installation:**
-          1. Download the appropriate binary for your platform
+          1. Download the appropriate binary for your platform below
           2. Make it executable: `chmod +x wut-*`
           3. Move to PATH: `sudo mv wut-* /usr/local/bin/wut`
           
@@ -68,7 +68,7 @@ jobs:
           wut
           ```
           
-          Wu-Tang Clan ain't nuthin' ta f' wit! 🔥
+          Enter the 36 Chambers of Time Management! Wu-Tang Clan ain't nuthin' ta f' wit! 🔥
         draft: false
         prerelease: false
       env:
