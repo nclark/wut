@@ -1,5 +1,9 @@
 # 🐉 WUT - Wu-Tang Ultimate Timer 🐉
 
+<div align="center">
+  <img src="./demo.gif" alt="WUT - Wu-Tang Ultimate Timer Demo" width="800">
+</div>
+
 ## WHAT YALL THOUGH YA WASN'T GONNA SEE ME
 
 The most lit, most Wu-Tang, most visually ridiculous countdown timer ever created. Enter the 36 Chambers of Time Management!
