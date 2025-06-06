@@ -3,7 +3,7 @@
 # 🐉 WUT - Wu-Tang Ultimate Timer 🐉
 
 <div align="center">
-  <img src="./demo.gif" alt="WUT - Wu-Tang Ultimate Timer Demo" width="800">
+  <img src="./demo.gif?v=36chambers" alt="WUT - Wu-Tang Ultimate Timer Demo" width="800">
 </div>
 
 ## WHAT YALL THOUGH YA WASN'T GONNA SEE ME
