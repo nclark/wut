@@ -168,7 +168,6 @@ type model struct {
 	screenShake       int
 	screenShakeX      int
 	screenShakeY      int
-	rainbowMode       bool
 	beatPulse         float64
 	currentMember     string
 	memberMode        bool
@@ -179,6 +178,7 @@ type model struct {
 	emojiRain         bool
 	customTimeInput   string
 	inputMode         bool
+	autoWuLogos       bool
 }
 
 // Styles
@@ -239,8 +239,8 @@ func initialModel() model {
 		wuTangLogos:     make([]FloatingQuote, 0),
 		flameAnimations: make([]Particle, 0),
 		menuSelection:   0,
-		rainbowMode:     false, // Start calmer
 		emojiRain:       false, // Start calmer
+		autoWuLogos:     true,  // Start with auto logos enabled
 		beatPulse:       0,
 		menuItems: []string{
 			"🔥 15 MINUTE WU-TANG COUNTDOWN 🔥",
@@ -309,7 +309,7 @@ func (m model) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 						m.totalTime = minutes * 60
 						m.timeRemaining = m.totalTime
 						m.state = countdownState
-						m.fireworksMode = true
+						m.fireworksMode = false
 						m.inputMode = false
 						return m, tea.Batch(tickCmd(), m.spawnInitialEffects())
 					}
@@ -319,19 +319,19 @@ func (m model) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 						m.totalTime = 900
 						m.timeRemaining = 900
 						m.state = countdownState
-						m.fireworksMode = true
+						m.fireworksMode = false
 						return m, tea.Batch(tickCmd(), m.spawnInitialEffects())
 					case 1:
 						m.totalTime = 300
 						m.timeRemaining = 300
 						m.state = countdownState
-						m.fireworksMode = true
+						m.fireworksMode = false
 						return m, tea.Batch(tickCmd(), m.spawnInitialEffects())
 					case 2:
 						m.totalTime = 60
 						m.timeRemaining = 60
 						m.state = countdownState
-						m.fireworksMode = true
+						m.fireworksMode = false
 						return m, tea.Batch(tickCmd(), m.spawnInitialEffects())
 					case 3:
 						// Custom time input
@@ -351,7 +351,6 @@ func (m model) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 						m.memberMode = true
 					case 5:
 						// Effects toggle - could open submenu
-						m.rainbowMode = !m.rainbowMode
 						m.emojiRain = !m.emojiRain
 						m.spinningText = !m.spinningText
 						m.strobeEffect = !m.strobeEffect
@@ -394,12 +393,15 @@ func (m model) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 						m.spawnParticles()
 					}
 				}
-			case "r":
-				m.rainbowMode = !m.rainbowMode
 			case "e":
 				m.emojiRain = !m.emojiRain
 			case "w":
-				m.spawnWuTangLogo()
+				// Toggle automatic Wu-Tang logo spawning
+				m.autoWuLogos = !m.autoWuLogos
+				if !m.autoWuLogos {
+					// Clear existing logos when disabling
+					m.wuTangLogos = m.wuTangLogos[:0]
+				}
 			case "s":
 				m.spinningText = !m.spinningText
 			case "t":
@@ -475,7 +477,7 @@ func (m model) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 			if m.frame%50 == 0 { // Spawn quotes less frequently
 				m.spawnQuote()
 			}
-			if m.frame%80 == 0 { // Spawn logos occasionally
+			if m.autoWuLogos && m.frame%80 == 0 { // Spawn logos occasionally
 				m.spawnWuTangLogo()
 			}
 			if m.emojiRain && m.frame%30 == 0 { // Much slower emoji rain
@@ -674,17 +676,9 @@ func getRainbowColor(phase float64) lipgloss.Color {
 	return lipgloss.Color(fmt.Sprintf("#%02x%02x%02x", r, g, b))
 }
 
-// Get member theme color with rainbow override
+// Get member theme color - always rainbow now
 func (m model) getMemberColor() lipgloss.Color {
-	if m.rainbowMode {
-		return getRainbowColor(float64(m.frame) * 0.05)
-	}
-	if m.memberMode && m.currentMember != "" {
-		if color, ok := memberColors[m.currentMember]; ok {
-			return color
-		}
-	}
-	return lipgloss.Color("#FFD700")
+	return getRainbowColor(float64(m.frame) * 0.05)
 }
 
 // Trigger screen shake
@@ -907,8 +901,8 @@ func (m model) menuView() string {
 
 	// Effects status
 	s.WriteString("\n")
-	effectsStatus := fmt.Sprintf("🌈 Rainbow: %v | 🎭 Emoji Rain: %v | 💫 Spinning: %v | ⚡ Strobe: %v",
-		m.rainbowMode, m.emojiRain, m.spinningText, m.strobeEffect)
+	effectsStatus := fmt.Sprintf("🎭 Emoji Rain: %v | 💫 Spinning: %v | ⚡ Strobe: %v | 🔥 Wu-Logos: %v",
+		m.emojiRain, m.spinningText, m.strobeEffect, m.autoWuLogos)
 	effectsStyle := lipgloss.NewStyle().Foreground(lipgloss.Color("#666666"))
 	s.WriteString(lipgloss.Place(m.width, 1, lipgloss.Center, lipgloss.Center, effectsStyle.Render(effectsStatus)))
 
@@ -986,10 +980,10 @@ func (m model) countdownView() string {
 
 		// Apply spinning text effect
 		text := q.Text
-		if m.spinningText && rand.Float64() < 0.1 {
+		if m.spinningText && rand.Float64() < 0.4 { // Increased from 0.1 to 0.4 for more visibility
 			// Reverse random words
 			words := strings.Split(text, " ")
-			if len(words) > 1 && rand.Float64() < 0.3 {
+			if len(words) > 1 && rand.Float64() < 0.6 { // Increased from 0.3 to 0.6
 				idx := rand.Intn(len(words))
 				words[idx] = reverseString(words[idx])
 			}
@@ -1037,8 +1031,8 @@ func (m model) countdownView() string {
 		lines[timerY] = centeredTimer
 	}
 
-	// Add particles line if fireworks mode
-	if m.fireworksMode && len(m.particles) > 0 && timerY+2 < len(lines) {
+	// Add particles line if fireworks mode OR emoji rain
+	if (m.fireworksMode || m.emojiRain) && len(m.particles) > 0 && timerY+2 < len(lines) {
 		particleStr := ""
 		for i, p := range m.particles {
 			if i > 20 {
@@ -1051,7 +1045,7 @@ func (m model) countdownView() string {
 			} else {
 				// Regular particles with spin effect
 				symbol := p.Symbol
-				if m.spinningText && rand.Float64() < 0.3 {
+				if m.spinningText && rand.Float64() < 0.7 { // Much more visible
 					symbols := []rune{'/', '-', '\\', '|'}
 					symbol = symbols[int(p.Spin)%4]
 				}
@@ -1088,16 +1082,22 @@ func (m model) countdownView() string {
 		if m.fireworksMode {
 			statusLine += lipgloss.NewStyle().Foreground(lipgloss.Color("#FFD700")).Bold(true).Render("[FIREWORKS] ")
 		}
-		if m.rainbowMode {
-			statusLine += lipgloss.NewStyle().Foreground(getRainbowColor(float64(m.frame)*0.1)).Bold(true).Render("[RAINBOW] ")
-		}
 		if m.emojiRain {
 			statusLine += lipgloss.NewStyle().Foreground(lipgloss.Color("#FF69B4")).Bold(true).Render("[EMOJI RAIN] ")
+		}
+		if m.strobeEffect {
+			statusLine += lipgloss.NewStyle().Foreground(lipgloss.Color("#FFFFFF")).Bold(true).Render("[STROBE] ")
+		}
+		if m.spinningText {
+			statusLine += lipgloss.NewStyle().Foreground(lipgloss.Color("#00FFFF")).Bold(true).Render("[SPINNING] ")
+		}
+		if m.autoWuLogos {
+			statusLine += lipgloss.NewStyle().Foreground(lipgloss.Color("#FFD700")).Bold(true).Render("[WU-LOGOS] ")
 		}
 		
 		statusLine += "\n"
 		statusLine += lipgloss.NewStyle().Foreground(lipgloss.Color("#888888")).
-			Render("g:glitch f:fireworks r:rainbow e:emoji w:wu-logo s:spin t:strobe m:member space:explode")
+			Render("g:glitch f:fireworks e:emoji w:wu-logo s:spin t:strobe m:member space:explode")
 
 		centeredStatus := lipgloss.Place(m.width, 2, lipgloss.Center, lipgloss.Center, statusLine)
 		lines[len(lines)-2] = centeredStatus[:len(centeredStatus)-1] // Remove trailing newline
