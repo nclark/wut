@@ -2,6 +2,8 @@ module github.com/nclark/wut
 
 go 1.23.5
 
+// License: WTFPL
+
 require (
 	github.com/charmbracelet/bubbles v0.21.0
 	github.com/charmbracelet/bubbletea v1.3.5
