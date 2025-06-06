@@ -37,6 +37,8 @@ docker run --rm -it ghcr.io/nclark/wut
 - 🔥 15 MINUTE WU-TANG COUNTDOWN
 - ⚡ 5 MINUTE SHAOLIN SPECIAL
 - 💀 1 MINUTE DEATH CHAMBER
+- 🛡️ 30 SECOND FOR THE CHILDREN
+- ⚔️ 15 SECOND PROTECT YA NECK
 - 🎯 CUSTOM TIME (Enter any number of minutes)
 
 ## 🎮 Controls

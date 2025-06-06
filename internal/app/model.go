@@ -71,6 +71,8 @@ func InitialModel() Model {
 			"🔥 15 MINUTE WU-TANG COUNTDOWN 🔥",
 			"⚡ 5 MINUTE SHAOLIN SPECIAL ⚡",
 			"💀 1 MINUTE DEATH CHAMBER 💀",
+			"🛡️ 30 SECOND FOR THE CHILDREN 🛡️",
+			"⚔️ 15 SECOND PROTECT YA NECK ⚔️",
 			"🎯 CUSTOM TIME (ENTER MINUTES)",
 			"🐉 MEMBER MODE: " + wutang.Members[0] + " 🐉",
 			"🌈 TOGGLE EFFECTS MENU 🌈",

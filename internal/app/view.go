@@ -66,7 +66,7 @@ func (m Model) menuView() string {
 		}
 
 		// Show custom time input
-		if i == 3 && m.InputMode {
+		if i == 5 && m.InputMode {
 			item = "  🎯 ENTER MINUTES: " + m.CustomTimeInput + "_  "
 		}
 

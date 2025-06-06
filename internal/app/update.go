@@ -102,11 +102,21 @@ func (m Model) handleMenuSelection() (tea.Model, tea.Cmd) {
 		m.TimeRemaining = 60
 		m.State = CountdownState
 		return m, m.spawnInitialEffects()
-	case 3: // Custom time
+	case 3: // 30 seconds - For The Children
+		m.TotalTime = 30
+		m.TimeRemaining = 30
+		m.State = CountdownState
+		return m, m.spawnInitialEffects()
+	case 4: // 15 seconds - Protect Ya Neck
+		m.TotalTime = 15
+		m.TimeRemaining = 15
+		m.State = CountdownState
+		return m, m.spawnInitialEffects()
+	case 5: // Custom time
 		m.InputMode = true
 		m.CustomTimeInput = ""
 		return m, nil
-	case 4: // Member mode
+	case 6: // Member mode
 		// Cycle through members
 		currentIndex := 0
 		for i, member := range wutang.Members {
@@ -117,11 +127,11 @@ func (m Model) handleMenuSelection() (tea.Model, tea.Cmd) {
 		}
 		nextIndex := (currentIndex + 1) % len(wutang.Members)
 		m.CurrentMember = wutang.Members[nextIndex]
-		m.MenuItems[4] = "🐉 MEMBER MODE: " + m.CurrentMember + " 🐉"
+		m.MenuItems[6] = "🐉 MEMBER MODE: " + m.CurrentMember + " 🐉"
 		return m, nil
-	case 5: // Effects menu (placeholder)
+	case 7: // Effects menu (placeholder)
 		return m, nil
-	case 6: // Exit
+	case 8: // Exit
 		return m, tea.Quit
 	}
 	return m, nil
