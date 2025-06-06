@@ -1,4 +1,4 @@
-module wu-tang-timer
+module github.com/nclark/wut
 
 go 1.23.5
 

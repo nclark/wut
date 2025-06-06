@@ -1,4 +1,4 @@
-# 🐉 WU-TANG COUNTDOWN CHAMBER 🐉
+# 🐉 WUT - Wu-Tang Ultimate Timer 🐉
 
 ## WHAT YALL THOUGH YA WASN'T GONNA SEE ME
 
@@ -52,8 +52,8 @@ The most lit, most Wu-Tang, most visually ridiculous countdown timer ever create
 
 ```bash
 # Clone the repo
-git clone <your-repo-url>
-cd wucount
+git clone https://github.com/nclark/wut.git
+cd wut
 
 # Build with make
 make build
@@ -72,7 +72,7 @@ make install
 go run main.go
 
 # Or if installed
-wu
+wut
 ```
 
 ## 🌈 Enhanced Features Breakdown

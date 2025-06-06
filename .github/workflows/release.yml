@@ -1,0 +1,74 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+      with:
+        fetch-depth: 0
+
+    - name: Set up Go
+      uses: actions/setup-go@v4
+      with:
+        go-version: '1.23'
+
+    - name: Get the version
+      id: get_version
+      run: echo "VERSION=${GITHUB_REF#refs/tags/}" >> $GITHUB_OUTPUT
+
+    - name: Build binaries
+      run: |
+        # macOS ARM64 (M1/M2)
+        GOOS=darwin GOARCH=arm64 go build -ldflags="-s -w -X main.version=${{ steps.get_version.outputs.VERSION }}" -o wut-macos-arm64 .
+        
+        # macOS Intel
+        GOOS=darwin GOARCH=amd64 go build -ldflags="-s -w -X main.version=${{ steps.get_version.outputs.VERSION }}" -o wut-macos-amd64 .
+        
+        # Linux
+        GOOS=linux GOARCH=amd64 go build -ldflags="-s -w -X main.version=${{ steps.get_version.outputs.VERSION }}" -o wut-linux-amd64 .
+        
+        # Windows
+        GOOS=windows GOARCH=amd64 go build -ldflags="-s -w -X main.version=${{ steps.get_version.outputs.VERSION }}" -o wut-windows-amd64.exe .
+
+    - name: Create Release
+      uses: softprops/action-gh-release@v1
+      with:
+        files: |
+          wut-macos-arm64
+          wut-macos-amd64
+          wut-linux-amd64
+          wut-windows-amd64.exe
+        body: |
+          ## 🐉 WUT - Wu-Tang Ultimate Timer ${{ steps.get_version.outputs.VERSION }}
+          
+          ### Installation
+          
+          **macOS (Homebrew - coming soon!):**
+          ```bash
+          brew install nclark/tap/wut
+          ```
+          
+          **Manual Installation:**
+          1. Download the appropriate binary for your platform
+          2. Make it executable: `chmod +x wut-*`
+          3. Move to PATH: `sudo mv wut-* /usr/local/bin/wut`
+          
+          ### Usage
+          ```bash
+          wut
+          ```
+          
+          Wu-Tang Clan ain't nuthin' ta f' wit! 🔥
+        draft: false
+        prerelease: false
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

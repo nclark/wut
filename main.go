@@ -13,6 +13,8 @@ import (
 	"github.com/charmbracelet/lipgloss"
 )
 
+var version = "dev" // Will be set by build process
+
 // States
 type state int
 

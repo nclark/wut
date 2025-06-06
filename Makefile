@@ -2,7 +2,7 @@
 # Wu-Tang Clan ain't nuthin' ta f' wit!
 
 # Variables
-BINARY_NAME=wu
+BINARY_NAME=wut
 MAIN_FILE=main.go
 BUILD_DIR=bin
 RELEASE_DIR=build
@@ -18,6 +18,15 @@ GOMOD=$(GOCMD) mod
 
 # Build flags
 LDFLAGS=-ldflags="-s -w -X main.version=$(VERSION)"
+
+# Git info for version
+GIT_COMMIT=$(shell git rev-parse --short HEAD 2>/dev/null || echo "dev")
+GIT_TAG=$(shell git describe --tags --exact-match 2>/dev/null || echo "")
+ifneq ($(GIT_TAG),)
+	VERSION=$(GIT_TAG)
+else
+	VERSION=$(GIT_COMMIT)
+endif
 
 # Default target
 .PHONY: all
@@ -108,14 +117,14 @@ clean:
 .PHONY: install
 install: build
 	@echo "📦 Installing Wu-Tang Timer to system..."
-	cp $(BUILD_DIR)/$(BINARY_NAME) /usr/local/bin/wu
-	@echo "✅ Installed! Run with: wu"
+	cp $(BUILD_DIR)/$(BINARY_NAME) /usr/local/bin/wut
+	@echo "✅ Installed! Run with: wut"
 
 # Uninstall binary from system PATH
 .PHONY: uninstall
 uninstall:
 	@echo "🗑️  Uninstalling Wu-Tang Timer..."
-	rm -f /usr/local/bin/wu
+	rm -f /usr/local/bin/wut
 	@echo "✅ Uninstalled!"
 
 # Format code
