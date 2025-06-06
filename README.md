@@ -54,8 +54,6 @@
 
 ## 💥 Bring da Ruckus
 
-## 🚀 Installation
-
 ### **Easy Install (Recommended):**
 ```bash
 # Install directly from GitHub
