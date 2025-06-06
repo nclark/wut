@@ -54,7 +54,13 @@
 
 ## 💥 Bring da Ruckus
 
-### **Easy Install (Recommended):**
+### **Docker One-Liner (No Install Needed):**
+```bash
+# Run instantly without installing anything
+docker run --rm -it ghcr.io/nclark/wut
+```
+
+### **Easy Install (Go Users):**
 ```bash
 # Install directly from GitHub
 go install github.com/nclark/wut@latest
