@@ -6,7 +6,7 @@
 
 ## WHAT YALL THOUGH YA WASN'T GONNA SEE ME
 
-The most lit, most Wu-Tang, most visually ridiculous countdown timer ever created. Enter the 36 Chambers of Time Management!
+*Enter the 36 Chambers of Time Management*
 
 ## 🔥 Features That Make It LIT 🔥
 
