@@ -54,8 +54,6 @@
 
 ## 💥 Bring da Ruckus
 
-Ready to transform your terminal into a Wu-Tang experience? Install `wut` and enter the chaos.
-
 ## 🚀 Installation
 
 ### **Easy Install (Recommended):**
