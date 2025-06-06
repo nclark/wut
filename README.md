@@ -16,7 +16,7 @@
 - **ASCII Wu-Tang Logo**: Bouncing around like the DVD screensaver
 - **Member-Specific Countdown**: Shows which member is blessing your timer
 
-### Visual Ridiculousness 
+### Visual Chaos 
 - **Rainbow Mode**: Everything cycles through rainbow colors
 - **Emoji Rain**: 40+ different emojis falling from the sky
 - **Screen Shake**: Automatic shakes on explosions and member switches
@@ -51,6 +51,10 @@
 - `SPACE`: Trigger EXPLOSION
 - `ESC`: Return to menu
 - `q`: Quit
+
+## 💥 Bring da Ruckus
+
+Ready to transform your terminal into a Wu-Tang experience? Install `wut` and enter the chaos.
 
 ## 🚀 Installation
 
