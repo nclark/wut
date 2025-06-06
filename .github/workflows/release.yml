@@ -37,16 +37,16 @@ jobs:
     - name: Build binaries
       run: |
         # macOS ARM64 (M1/M2)
-        GOOS=darwin GOARCH=arm64 go build -ldflags="-s -w -X main.version=${{ steps.get_version.outputs.VERSION }}" -o wut-macos-arm64 .
+        GOOS=darwin GOARCH=arm64 go build -ldflags="-s -w -X main.version=${{ steps.get_version.outputs.VERSION }}" -o wut-macos-arm64 ./cmd/wut
         
         # macOS Intel
-        GOOS=darwin GOARCH=amd64 go build -ldflags="-s -w -X main.version=${{ steps.get_version.outputs.VERSION }}" -o wut-macos-amd64 .
+        GOOS=darwin GOARCH=amd64 go build -ldflags="-s -w -X main.version=${{ steps.get_version.outputs.VERSION }}" -o wut-macos-amd64 ./cmd/wut
         
         # Linux
-        GOOS=linux GOARCH=amd64 go build -ldflags="-s -w -X main.version=${{ steps.get_version.outputs.VERSION }}" -o wut-linux-amd64 .
+        GOOS=linux GOARCH=amd64 go build -ldflags="-s -w -X main.version=${{ steps.get_version.outputs.VERSION }}" -o wut-linux-amd64 ./cmd/wut
         
         # Windows
-        GOOS=windows GOARCH=amd64 go build -ldflags="-s -w -X main.version=${{ steps.get_version.outputs.VERSION }}" -o wut-windows-amd64.exe .
+        GOOS=windows GOARCH=amd64 go build -ldflags="-s -w -X main.version=${{ steps.get_version.outputs.VERSION }}" -o wut-windows-amd64.exe ./cmd/wut
 
     - name: Build and push Docker image
       uses: docker/build-push-action@v5

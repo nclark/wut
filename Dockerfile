@@ -5,7 +5,7 @@ COPY go.mod go.sum ./
 RUN go mod download
 
 COPY . .
-RUN go build -ldflags="-s -w" -o wut .
+RUN go build -ldflags="-s -w" -o wut ./cmd/wut
 
 FROM alpine:latest
 RUN apk --no-cache add ca-certificates tzdata

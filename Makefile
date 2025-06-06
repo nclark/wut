@@ -3,7 +3,7 @@
 
 # Variables
 BINARY_NAME=wut
-MAIN_FILE=main.go
+MAIN_FILE=cmd/wut/main.go
 BUILD_DIR=bin
 RELEASE_DIR=build
 VERSION?=1.0.0
@@ -48,7 +48,7 @@ deps:
 build:
 	@echo "🐉 Building Wu-Tang Timer..."
 	mkdir -p $(BUILD_DIR)
-	$(GOBUILD) $(LDFLAGS) -o $(BUILD_DIR)/$(BINARY_NAME) $(MAIN_FILE)
+	$(GOBUILD) $(LDFLAGS) -o $(BUILD_DIR)/$(BINARY_NAME) ./cmd/wut
 	@echo "✅ Binary built: $(BUILD_DIR)/$(BINARY_NAME)"
 
 # Build optimized release version
@@ -56,7 +56,7 @@ build:
 release:
 	@echo "🏆 Building Wu-Tang Timer release..."
 	mkdir -p $(RELEASE_DIR)
-	$(GOBUILD) $(LDFLAGS) -o $(RELEASE_DIR)/$(BINARY_NAME) $(MAIN_FILE)
+	$(GOBUILD) $(LDFLAGS) -o $(RELEASE_DIR)/$(BINARY_NAME) ./cmd/wut
 	@echo "✅ Release binary built: $(RELEASE_DIR)/$(BINARY_NAME)"
 
 # Cross-platform builds
@@ -66,16 +66,16 @@ build-all: clean
 	mkdir -p $(RELEASE_DIR)
 
 	# macOS ARM64 (M1/M2)
-	GOOS=darwin GOARCH=arm64 $(GOBUILD) $(LDFLAGS) -o $(RELEASE_DIR)/$(BINARY_NAME)-macos-m1 $(MAIN_FILE)
+	GOOS=darwin GOARCH=arm64 $(GOBUILD) $(LDFLAGS) -o $(RELEASE_DIR)/$(BINARY_NAME)-macos-m1 ./cmd/wut
 
 	# macOS Intel
-	GOOS=darwin GOARCH=amd64 $(GOBUILD) $(LDFLAGS) -o $(RELEASE_DIR)/$(BINARY_NAME)-macos-intel $(MAIN_FILE)
+	GOOS=darwin GOARCH=amd64 $(GOBUILD) $(LDFLAGS) -o $(RELEASE_DIR)/$(BINARY_NAME)-macos-intel ./cmd/wut
 
 	# Linux
-	GOOS=linux GOARCH=amd64 $(GOBUILD) $(LDFLAGS) -o $(RELEASE_DIR)/$(BINARY_NAME)-linux $(MAIN_FILE)
+	GOOS=linux GOARCH=amd64 $(GOBUILD) $(LDFLAGS) -o $(RELEASE_DIR)/$(BINARY_NAME)-linux ./cmd/wut
 
 	# Windows
-	GOOS=windows GOARCH=amd64 $(GOBUILD) $(LDFLAGS) -o $(RELEASE_DIR)/$(BINARY_NAME).exe $(MAIN_FILE)
+	GOOS=windows GOARCH=amd64 $(GOBUILD) $(LDFLAGS) -o $(RELEASE_DIR)/$(BINARY_NAME).exe ./cmd/wut
 
 	@echo "✅ All platform binaries built in $(RELEASE_DIR)/"
 	@ls -la $(RELEASE_DIR)/
@@ -84,7 +84,7 @@ build-all: clean
 .PHONY: run
 run: deps
 	@echo "🚀 Running Wu-Tang Timer..."
-	$(GOCMD) run $(MAIN_FILE)
+	$(GOCMD) run ./cmd/wut
 
 # Run with hot reload (requires air)
 .PHONY: dev
